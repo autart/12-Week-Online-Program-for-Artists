@@ -7,8 +7,8 @@
 <meta name="description" content="What art school never taught you. A 12-week online program for artists by gallerist Konstanze Wolter and artist Sanford Maria Wintersberger. Starts October 1, 2026.">
 <meta property="og:title" content="The Art Market Program — autart">
 <meta property="og:description" content="What art school never taught you. A 12-week online program for artists. Starts October 1, 2026.">
-<link rel="icon" type="image/png" href="../assets/signet.png">
-<link rel="apple-touch-icon" href="../assets/signet.png">
+<link rel="icon" type="image/png" href="assets/signet.png">
+<link rel="apple-touch-icon" href="assets/signet.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,700;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
@@ -112,16 +112,14 @@ em { font-style: italic; }
 
 .stroke {
   display: inline-block; width: 140px; height: 22px;
-  background: url('../assets/brushstroke.png') left center / contain no-repeat;
+  background: url('assets/brushstroke.png') left center / contain no-repeat;
   vertical-align: middle; flex-shrink: 0;
 }
-.stroke.white   { background-image: url('../assets/brushstroke-white.png'); }
-.stroke.magenta { background-image: url('../assets/brushstroke-magenta.png'); }
+.stroke.white   { background-image: url('assets/brushstroke-white.png'); }
+.stroke.magenta { background-image: url('assets/brushstroke-magenta.png'); }
 .stroke.lg { width: clamp(200px, 22vw, 280px); height: clamp(28px, 3vw, 44px); }
 .stroke.xl { width: clamp(260px, 32vw, 400px); height: clamp(40px, 5vw, 72px); background-position: center; }
 .hero-eyebrow .stroke { width: 170px; height: 26px; background-position: center; }
-.stroke.white { background-image: url('../assets/brushstroke-vert-white.png'); }
-.stroke.magenta { background-image: url('../assets/brushstroke-vert-magenta.png'); }
 
 /* Pill button — capsule, brand voice */
 .btn {
@@ -346,6 +344,17 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--ink-60); margin-top: 6px; display: block;
 }
+.glyph-days {
+  display: flex; flex-direction: column; line-height: 0.85;
+}
+.glyph-days em {
+  font-style: normal; font-weight: 900;
+  font-size: clamp(2.2rem, 1rem + 2.6vw, 3.4rem);
+  letter-spacing: -0.03em; text-transform: uppercase; color: var(--ink);
+}
+.glyph-days em + em {
+  color: var(--accent); margin-top: 4px;
+}
 .glyph-pdf {
   font-weight: 900;
   font-size: clamp(1.8rem, 0.9rem + 2.4vw, 2.8rem);
@@ -406,28 +415,32 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 .instructors-head { margin-bottom: clamp(48px, 7vw, 96px); }
 .instructors-head .h-1 { margin: 14px 0 22px; }
 .inst-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1px; background: rgba(255,255,255,0.08);
 }
 .inst {
   background: var(--ink); padding: clamp(36px, 5vw, 60px);
-  display: grid; grid-template-columns: 100px 1fr; gap: 22px;
+  display: grid; grid-template-columns: minmax(0, clamp(180px, 22vw, 220px)) minmax(0, 1fr); gap: clamp(24px, 3vw, 36px);
   align-items: start;
+  min-width: 0;
 }
 .inst-portrait {
-  width: 100px; height: 130px;
-  background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
+  width: 100%; aspect-ratio: 3/4;
+  background: #0a0a0a;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
-  display: flex; align-items: flex-end; justify-content: center;
-  font-family: var(--font); font-weight: 900; font-size: 0.6rem;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  padding-bottom: 10px;
+}
+.inst-portrait img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: contrast(1.02) saturate(0.94);
+}
+.inst-body {
+  min-width: 0;
 }
 .inst-body .inst-name {
   font-weight: 900; font-size: clamp(1.3rem, 1rem + 1vw, 1.8rem);
   letter-spacing: -0.01em; line-height: 1.1; color: var(--white);
-  text-transform: uppercase;
+  text-transform: uppercase; overflow-wrap: break-word;
 }
 .inst-body .inst-role {
   margin-top: 8px;
@@ -457,10 +470,13 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: rgba(255,255,255,0.45); margin-top: 4px; display: block;
 }
-@media (max-width: 880px) {
+@media (max-width: 1399px) {
   .inst-grid { grid-template-columns: 1fr; }
-  .inst { grid-template-columns: 80px 1fr; padding: 32px 24px; }
-  .inst-portrait { width: 80px; height: 104px; }
+  .inst { grid-template-columns: 200px minmax(0, 1fr); padding: clamp(28px, 4vw, 48px); gap: clamp(20px, 3vw, 32px); }
+}
+@media (max-width: 480px) {
+  .inst { grid-template-columns: 1fr; }
+  .inst-portrait { aspect-ratio: 4/3; }
 }
 
 /* ───────────────────────────────────────────────
@@ -474,7 +490,7 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
 }
 .tier {
   display: grid;
-  grid-template-columns: 36px 1.4fr 1fr 1fr 1fr auto;
+  grid-template-columns: 36px 1.4fr 1.1fr 0.85fr 0.85fr 96px;
   gap: 20px; align-items: center;
   padding: 22px 4px;
   border-bottom: 1px solid var(--ink-10);
@@ -503,13 +519,13 @@ section { padding: clamp(60px, 9vw, 130px) 0; }
   font-weight: 700;
 }
 .tier.past { color: var(--ink-40); }
-.tier.past .t-price { color: var(--ink-40); }
+.tier.past .t-price { color: var(--ink-40); text-decoration: line-through; text-decoration-color: var(--ink-20); }
 
-.pricing-foot { margin-top: 28px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-.pricing-foot small { font-size: 0.85rem; color: var(--ink-60); max-width: 50ch; line-height: 1.5; }
+.pricing-foot { margin-top: 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+.pricing-foot small { font-size: 0.88rem; color: var(--ink-60); max-width: 56ch; line-height: 1.6; }
 
 @media (max-width: 800px) {
-  .tier { grid-template-columns: 28px 1fr auto; gap: 12px; padding: 16px 4px; font-size: 0.95rem; }
+  .tier { grid-template-columns: 28px 1fr auto 80px; gap: 12px; padding: 16px 4px; font-size: 0.95rem; }
   .tier .t-when, .tier .t-install { display: none; }
   .tier.head .t-when, .tier.head .t-install { display: none; }
 }
@@ -592,8 +608,9 @@ footer .imprint a:hover { color: var(--accent); }
 <!-- ─── NAV ─────────────────────────────────────────── -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#top"><img src="../assets/logo-autart.png" alt="autart"></a>
-    <span class="nav-tag">Early access · <b>€197</b> · closes 31 May</span>
+    <a href="#top"><img src="assets/logo-autart.png" alt="autart"></a>
+    <span class="nav-tag js-state-ea"><span class="js-state-label">Early access</span> · <b class="js-price">€197</b> · closes <span class="js-deadline-short">31 May</span></span>
+    <span class="nav-tag js-state-launch" hidden>Now open · <b class="js-price">€297</b></span>
     <span class="nav-divider"></span>
     <a class="btn sm" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program</a>
   </div>
@@ -607,7 +624,7 @@ footer .imprint a:hover { color: var(--accent); }
   </div>
 
   <figure class="hero-product">
-    <img src="../assets/Produktbild_autart.jpg" alt="What art school never taught you — the autart Art Market Program.">
+    <img src="assets/Produktbild_autart.jpg" alt="What art school never taught you — the autart Art Market Program.">
   </figure>
 
   <div class="hero-meta">
@@ -616,9 +633,10 @@ footer .imprint a:hover { color: var(--accent); }
     </div>
     <div class="hero-cta">
       <div class="hero-cta-row">
-        <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — €197</a>
+        <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — <span class="js-price">€197</span></a>
       </div>
-      <small>Early access price closes 31 May · rises €30 every month after that.</small>
+      <small class="js-state-ea">First in line price closes <span class="js-deadline-short">31 May</span> · rises €30 every month after that.</small>
+      <small class="js-state-launch" hidden>The program is open. Lifetime access at the launch price.</small>
     </div>
   </div>
 
@@ -626,7 +644,7 @@ footer .imprint a:hover { color: var(--accent); }
     <div class="hero-fact"><div class="k">Opens</div><div class="v">October 1, 2026</div></div>
     <div class="hero-fact"><div class="k">Duration</div><div class="v">12 weeks</div></div>
     <div class="hero-fact"><div class="k">Format</div><div class="v">Online · on demand</div></div>
-    <div class="hero-fact"><div class="k">Live calls</div><div class="v">Weekly · Wed 3 pm CET</div></div>
+    <div class="hero-fact"><div class="k">Live calls</div><div class="v">Mon + Wed · 3 pm CET</div></div>
     <div class="hero-fact"><div class="k">Language</div><div class="v">English</div></div>
   </div>
 </section>
@@ -651,7 +669,8 @@ footer .imprint a:hover { color: var(--accent); }
   <div class="container">
     <div class="problem-grid">
       <div class="problem-head">
-        <div class="eyebrow-block"><span class="overline accent">The gap no one talks about</span><span class="stroke magenta"></span></div>
+        <div class="eyebrow-block"><span class="overline accent">The gap no one talks about</span></div>
+        <div class="stroke magenta lg" style="margin: 18px 0 22px;" aria-hidden="true"></div>
         <h2 class="h-1">You know how<br>to make art.<br><em style="color:var(--accent)">But</em> do you know<br>how the market works?</h2>
         <p class="lead">Art school teaches craft, concept, and history. It does not teach you how galleries make decisions, how collectors buy, or how your prices are formed. This program fills that gap — for good.</p>
       </div>
@@ -672,7 +691,7 @@ footer .imprint a:hover { color: var(--accent); }
     <div class="curr-head">
       <div class="eyebrow-block"><span class="overline">Curriculum</span><span class="stroke"></span></div>
       <h2 class="h-1">Twelve modules.<br>One new week,<br>every week.</h2>
-      <p class="lead">A new module unlocks every Monday morning, ready when you are. The live call runs Wednesdays at 3 pm CET — join live, or catch the recording within 24 hours.</p>
+      <p class="lead">A new module unlocks each week of the program, ready when you are. Two live calls per week — Monday and Wednesday at 3 pm CET — let you join live, or catch the recording within 24 hours.</p>
     </div>
 
     <!-- Month 1 -->
@@ -680,15 +699,15 @@ footer .imprint a:hover { color: var(--accent); }
       <div class="month-meta">
         <div class="month-n">01</div>
         <div class="month-title">The Art Market<br>from the Inside</div>
-        <div class="month-when">Modules 1–5 · October 2026</div>
+        <div class="month-when">5 modules</div>
         <div class="month-by">Konstanze Wolter</div>
       </div>
       <div class="module-list">
-        <div class="module"><span class="module-n">01</span><span class="module-title">The Art Market: Who Has the Power</span><span class="module-meta">Wed 1 Oct</span></div>
-        <div class="module"><span class="module-n">02</span><span class="module-title">How Galleries Really Decide</span><span class="module-meta">Wed 8 Oct</span></div>
-        <div class="module"><span class="module-n">03</span><span class="module-title">How Collectors Think and Buy</span><span class="module-meta">Wed 15 Oct</span></div>
-        <div class="module"><span class="module-n">04</span><span class="module-title">Pricing: The Logic Behind the Numbers</span><span class="module-meta">Wed 22 Oct</span></div>
-        <div class="module"><span class="module-n">05</span><span class="module-title">Art Fairs, Auctions &amp; Online Platforms</span><span class="module-meta">Wed 29 Oct</span></div>
+        <div class="module"><span class="module-n">01</span><span class="module-title">The Art Market: Who Has the Power</span></div>
+        <div class="module"><span class="module-n">02</span><span class="module-title">How Galleries Really Decide</span></div>
+        <div class="module"><span class="module-n">03</span><span class="module-title">How Collectors Think and Buy</span></div>
+        <div class="module"><span class="module-n">04</span><span class="module-title">Pricing: The Logic Behind the Numbers</span></div>
+        <div class="module"><span class="module-n">05</span><span class="module-title">Art Fairs, Auctions &amp; Online Platforms</span></div>
       </div>
     </div>
 
@@ -697,14 +716,14 @@ footer .imprint a:hover { color: var(--accent); }
       <div class="month-meta">
         <div class="month-n">02</div>
         <div class="month-title">Your<br>Artistic Voice</div>
-        <div class="month-when">Modules 6–9 · November 2026</div>
+        <div class="month-when">4 modules</div>
         <div class="month-by">Sanford Maria Wintersberger</div>
       </div>
       <div class="module-list">
-        <div class="module"><span class="module-n">06</span><span class="module-title">Finding Your Artistic Voice</span><span class="module-meta">Wed 5 Nov</span></div>
-        <div class="module"><span class="module-n">07</span><span class="module-title">Developing a Signature Practice</span><span class="module-meta">Wed 12 Nov</span></div>
-        <div class="module"><span class="module-n">08</span><span class="module-title">The Body of Work: Continuity &amp; Commitment</span><span class="module-meta">Wed 19 Nov</span></div>
-        <div class="module"><span class="module-n">09</span><span class="module-title">Art History as Your Mirror: Reading Your Own Roots</span><span class="module-meta">Wed 26 Nov</span></div>
+        <div class="module"><span class="module-n">06</span><span class="module-title">Finding Your Artistic Voice</span></div>
+        <div class="module"><span class="module-n">07</span><span class="module-title">Developing a Signature Practice</span></div>
+        <div class="module"><span class="module-n">08</span><span class="module-title">The Body of Work: Continuity &amp; Commitment</span></div>
+        <div class="module"><span class="module-n">09</span><span class="module-title">Art History as Your Mirror: Reading Your Own Roots</span></div>
       </div>
     </div>
 
@@ -713,13 +732,13 @@ footer .imprint a:hover { color: var(--accent); }
       <div class="month-meta">
         <div class="month-n">03</div>
         <div class="month-title">Where Market<br>and Art Meet</div>
-        <div class="month-when">Modules 10–12 · December 2026</div>
+        <div class="month-when">3 modules</div>
         <div class="month-by">Both instructors</div>
       </div>
       <div class="module-list">
-        <div class="module"><span class="module-n">10</span><span class="module-title">Where Market and Art Meet</span><span class="module-meta">Wed 3 Dec</span></div>
-        <div class="module"><span class="module-n">11</span><span class="module-title">The Collector Encounter: Being Ready</span><span class="module-meta">Wed 10 Dec</span></div>
-        <div class="module"><span class="module-n">12</span><span class="module-title">Your Next Step: From Program to Practice</span><span class="module-meta">Wed 17 Dec</span></div>
+        <div class="module"><span class="module-n">10</span><span class="module-title">Where Market and Art Meet</span></div>
+        <div class="module"><span class="module-n">11</span><span class="module-title">The Collector Encounter: Being Ready</span></div>
+        <div class="module"><span class="module-n">12</span><span class="module-title">Your Next Step: From Program to Practice</span></div>
       </div>
     </div>
   </div>
@@ -734,9 +753,9 @@ footer .imprint a:hover { color: var(--accent); }
     </div>
     <div class="includes-grid">
       <div class="inc"><div class="inc-n">12</div><h4>Video Modules</h4><p>One module unlocks every Monday morning. Approx. 30–45 minutes each. Watch on demand, at any time.</p></div>
-      <div class="inc"><div class="inc-n inc-glyph"><span class="glyph-wed"><em>Wed</em><span>3 pm CET</span></span></div><h4>Live Calls</h4><p>Every Wednesday, 60 minutes. Ask questions, apply the lesson to your own work. Recording within 24 hours.</p></div>
+      <div class="inc"><div class="inc-n inc-glyph"><span class="glyph-days"><em>Mon</em><em>Wed</em></span></div><h4>Live Calls</h4><p>Twice a week — Mondays and Wednesdays at 3 pm CET, 60 minutes. Ask questions, apply the lesson to your own work. Recording within 24 hours.</p></div>
       <div class="inc"><div class="inc-n inc-glyph"><span class="glyph-pdf">PDF</span></div><h4>Workbooks</h4><p>One downloadable workbook per module — structured to apply every lesson directly to your own practice.</p></div>
-      <div class="inc"><div class="inc-n">∞</div><h4>Lifetime Access</h4><p>All recordings and materials remain yours after December 17, 2026. No expiry, no subscription. Yours to keep.</p></div>
+      <div class="inc"><div class="inc-n">∞</div><h4>Lifetime Access</h4><p>All recordings and materials are yours to keep. No expiry, no subscription, no take-backs.</p></div>
     </div>
   </div>
 </section>
@@ -745,17 +764,18 @@ footer .imprint a:hover { color: var(--accent); }
 <section class="instructors">
   <div class="container">
     <div class="instructors-head">
-      <div class="eyebrow-block"><span class="overline on-dark">Your instructors</span><span class="stroke white"></span></div>
+      <div class="eyebrow-block"><span class="overline on-dark">Your instructors</span></div>
+      <div class="stroke white lg" style="margin: 18px 0 22px;" aria-hidden="true"></div>
       <h2 class="h-1">Two perspectives<br>the art world<br><em style="color:var(--accent)">rarely combines.</em></h2>
     </div>
     <div class="inst-grid">
 
       <article class="inst">
-        <div class="inst-portrait">Portrait</div>
+        <div class="inst-portrait"><img src="assets/instructor-konstanze.png" alt="Konstanze Wolter"></div>
         <div class="inst-body">
           <div class="inst-name">Konstanze Wolter</div>
           <span class="inst-role">Gallerist · Art Dealer · Founder</span>
-          <p>Konstanze Wolter is the founder of gallery Konstanze Wolter, e.artis contemporary, and autart GmbH — three platforms built over 17 years on one conviction: that great art deserves to reach the people who will truly live with it.</p>
+          <p>Konstanze Wolter is the founder of e.artis, Gallery Konstanze Wolter e.artis contemporary and autart — three platforms built over 17 years on one conviction: that great art deserves to reach the people who will truly live with it.</p>
           <p>Working side by side with artists, she has spent nearly two decades curating multimillion-euro collections for collectors who see art as life, not decor. She brings to this program the exact knowledge she uses every day: how galleries think, how collectors decide, and how the market actually moves — stripped of all mystification.</p>
           <div class="inst-stats">
             <div class="istat"><strong>33,000+</strong><span>Works sold</span></div>
@@ -766,7 +786,7 @@ footer .imprint a:hover { color: var(--accent); }
       </article>
 
       <article class="inst">
-        <div class="inst-portrait">Portrait</div>
+        <div class="inst-portrait"><img src="assets/instructor-sanford.png" alt="Sanford Maria Wintersberger"></div>
         <div class="inst-body">
           <div class="inst-name">Sanford Maria<br>Wintersberger</div>
           <span class="inst-role">Artist · Expert in art history</span>
@@ -795,7 +815,7 @@ footer .imprint a:hover { color: var(--accent); }
       <div class="tier head">
         <span></span><span>Tier</span><span>Available</span><span>Single payment</span><span>3 instalments</span><span></span>
       </div>
-      <div class="tier now">
+      <div class="tier now" data-end="2026-05-31" data-price="197">
         <span class="t-n">01</span>
         <span class="t-name">First in line</span>
         <span class="t-when">Until 31 May 2026</span>
@@ -803,7 +823,7 @@ footer .imprint a:hover { color: var(--accent); }
         <span class="t-install">3 × €69</span>
         <span class="t-status">Now</span>
       </div>
-      <div class="tier">
+      <div class="tier" data-end="2026-06-30" data-price="227">
         <span class="t-n">02</span>
         <span class="t-name">Early access II</span>
         <span class="t-when">1 – 30 Jun 2026</span>
@@ -811,7 +831,7 @@ footer .imprint a:hover { color: var(--accent); }
         <span class="t-install">3 × €79</span>
         <span class="t-status">Next</span>
       </div>
-      <div class="tier">
+      <div class="tier" data-end="2026-07-31" data-price="247">
         <span class="t-n">03</span>
         <span class="t-name">Early access III</span>
         <span class="t-when">1 – 31 Jul 2026</span>
@@ -819,7 +839,7 @@ footer .imprint a:hover { color: var(--accent); }
         <span class="t-install">3 × €89</span>
         <span class="t-status"></span>
       </div>
-      <div class="tier">
+      <div class="tier" data-end="2026-08-31" data-price="267">
         <span class="t-n">04</span>
         <span class="t-name">Early access IV</span>
         <span class="t-when">1 – 31 Aug 2026</span>
@@ -827,7 +847,7 @@ footer .imprint a:hover { color: var(--accent); }
         <span class="t-install">3 × €95</span>
         <span class="t-status"></span>
       </div>
-      <div class="tier">
+      <div class="tier" data-end="2026-09-30" data-price="277">
         <span class="t-n">05</span>
         <span class="t-name">Pre-launch</span>
         <span class="t-when">1 – 30 Sep 2026</span>
@@ -835,7 +855,7 @@ footer .imprint a:hover { color: var(--accent); }
         <span class="t-install">3 × €99</span>
         <span class="t-status"></span>
       </div>
-      <div class="tier">
+      <div class="tier" data-launch="1" data-price="297">
         <span class="t-n">06</span>
         <span class="t-name">Launch price</span>
         <span class="t-when">From 1 Oct 2026</span>
@@ -846,8 +866,8 @@ footer .imprint a:hover { color: var(--accent); }
     </div>
 
     <div class="pricing-foot">
-      <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — €197</a>
-      <small>All prices include 19% German VAT (MwSt.). VAT shown separately during checkout. No application required.</small>
+      <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — <span class="js-price">€197</span></a>
+      <small>All prices exclude VAT. VAT is added at checkout where applicable. No application required.</small>
     </div>
   </div>
 </section>
@@ -858,8 +878,9 @@ footer .imprint a:hover { color: var(--accent); }
     <span class="overline">The program opens</span>
     <h2 class="h-display">October 1<span class="acc">.</span></h2>
     <div class="stroke-wrap"><span class="stroke white xl"></span></div>
-    <p>The Early Access price of €197 closes on 31 May 2026. After that, every month, it rises by €30 — until it reaches €297 at launch.</p>
-    <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — €197</a>
+    <p class="js-state-ea">The current price of <span class="js-price">€197</span> closes on <span class="js-deadline-long">31 May 2026</span>. After that, every month, it rises by €30 — until it reaches €297 at launch.</p>
+    <p class="js-state-launch" hidden>The program is open. <span class="js-price">€297</span> — lifetime access, no subscription.</p>
+    <a class="btn lg" href="https://copecart.com/products/91310a1d/checkout" target="_blank" rel="noopener noreferrer">Join the program — <span class="js-price">€197</span></a>
   </div>
 </section>
 
@@ -877,7 +898,7 @@ footer .imprint a:hover { color: var(--accent); }
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Is this program on demand — can I work at my own pace?<span class="arr">+</span></button>
-        <div class="faq-a"><div class="faq-a-inner">Yes. A new module unlocks each Monday morning, and you can watch it any time after that. The live calls happen at 3 pm CET every Wednesday — if you miss one, the recording is available within 24 hours. The program is designed for working artists with busy schedules.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. A new module unlocks each week, and you can watch it any time after that. The live calls happen at 3 pm CET on Mondays and Wednesdays — if you miss one, the recording is available within 24 hours. The program is designed for working artists with busy schedules.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What level is this program for?<span class="arr">+</span></button>
@@ -907,21 +928,20 @@ footer .imprint a:hover { color: var(--accent); }
 <footer>
   <div class="container">
     <div class="foot-top">
-      <a href="#top"><img src="../assets/logo-autart.png" alt="autart"></a>
+      <a href="#top"><img src="assets/logo-autart.png" alt="autart"></a>
       <div class="foot-links">
-        <a href="/cdn-cgi/l/email-protection#85ede0e9e9eac5e4f0f1e4f7f1abecea"><span class="__cf_email__" data-cfemail="4f272a2323200f2e3a3b2e3d3b612620">[email&#160;protected]</span></a>
-        <a href="https://autart.io" target="_blank" rel="noopener noreferrer">autart.io</a>
+        <a class="js-email" data-u="hello" data-d="autart.io">…</a>
       </div>
     </div>
     <p class="imprint">
-      Provider: autart GmbH · Annaberger Str. 73 · 09111 Chemnitz · Germany · Managing Director: Konstanze Wolter<br>
+      Provider: autart GmbH · Annaberger Str. 73 · 09111 Chemnitz · Germany · Managing Partner: Konstanze Wolter<br>
       Commercial Register: HRB 34994 · Amtsgericht Chemnitz · DUNS: 344146515 · Tax no.: 214/105/05336 · VAT ID: DE353706653<br>
-      All prices include 19% German VAT. The right of withdrawal expires upon access to digital content (§ 356 para. 5 BGB).
+      All prices are net. VAT is added at checkout where applicable. The right of withdrawal expires upon access to digital content (§ 356 para. 5 BGB).
     </p>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // FAQ accordion — accessible, smooth
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -936,6 +956,85 @@ footer .imprint a:hover { color: var(--accent); }
       }
     });
   });
+</script>
+
+
+<script>
+  // Active-tier resolver — picks today's tier and rewrites prices/deadlines across the page.
+  // Source of truth: the .tier rows in the pricing table.
+  (function(){
+    var tiers = Array.prototype.slice.call(document.querySelectorAll('.tier[data-end], .tier[data-launch]'));
+    if (!tiers.length) return;
+
+    var today = new Date();
+    today.setHours(0,0,0,0);
+
+    var activeIdx = -1, active = null;
+    for (var i = 0; i < tiers.length; i++) {
+      var t = tiers[i];
+      var endIso = t.getAttribute('data-end');
+      if (endIso) {
+        var endDate = new Date(endIso + 'T23:59:59');
+        if (today <= endDate) { activeIdx = i; active = t; break; }
+      } else if (t.hasAttribute('data-launch')) {
+        // launch tier: active only if no earlier tier still in window
+        if (activeIdx === -1) { activeIdx = i; active = t; }
+        break;
+      }
+    }
+    if (!active) { activeIdx = tiers.length - 1; active = tiers[activeIdx]; }
+
+    // Move .now / .next / .past classes
+    tiers.forEach(function(t, i){
+      t.classList.remove('now','next','past');
+      var status = t.querySelector('.t-status');
+      if (status) status.textContent = '';
+      if (i < activeIdx)         { t.classList.add('past'); }
+      else if (i === activeIdx)  { t.classList.add('now');  if (status) status.textContent = 'Now'; }
+      else if (i === activeIdx+1){ t.classList.add('next'); if (status) status.textContent = 'Next'; }
+    });
+
+    // Pull active price + end date
+    var price = active.getAttribute('data-price');
+    var endIso = active.getAttribute('data-end');
+    var isLaunch = active.hasAttribute('data-launch');
+
+    // Format dates
+    var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var shortDate = '', longDate = '';
+    if (endIso) {
+      var d = new Date(endIso + 'T00:00:00');
+      shortDate = d.getDate() + ' ' + MONTHS[d.getMonth()];
+      longDate  = d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+    }
+
+    // Rewrite all dynamic spans
+    document.querySelectorAll('.js-price').forEach(function(el){ el.textContent = '€' + price; });
+    document.querySelectorAll('.js-deadline-short').forEach(function(el){ el.textContent = shortDate; });
+    document.querySelectorAll('.js-deadline-long').forEach(function(el){ el.textContent = longDate; });
+
+    // Toggle early-access vs launch state
+    var ea = document.querySelectorAll('.js-state-ea');
+    var lp = document.querySelectorAll('.js-state-launch');
+    ea.forEach(function(el){ el.hidden = isLaunch; });
+    lp.forEach(function(el){ el.hidden = !isLaunch; });
+  })();
+</script>
+
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.js-email');
+    for (var i = 0; i < els.length; i++) {
+      var a = els[i];
+      var u = a.getAttribute('data-u');
+      var d = a.getAttribute('data-d');
+      if (!u || !d) continue;
+      var addr = u + '@' + d;
+      a.setAttribute('href', 'mailto:' + addr);
+      a.textContent = addr;
+    }
+  })();
 </script>
 
 </body>
