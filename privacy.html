@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — autart</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/signet.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,700;0,6..12,900;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'Avenir'; src:url('assets/Avenir-Book.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Avenir'; src:url('assets/Avenir-Medium.ttf') format('truetype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Avenir'; src:url('assets/Avenir-Black.ttf') format('truetype'); font-weight:900; font-style:normal; font-display:swap; }
+:root{
+  --ink:#0a0a0a; --ink-80:#1a1a1a; --ink-60:#4a4a4a; --ink-40:#8a8a8a;
+  --ink-20:#c8c8c8; --ink-10:#e6e6e6; --ink-05:#f4f1ec; --ink-02:#faf9f6;
+  --white:#fff; --accent:#df4893; --accent-hover:#c93a82;
+  --font:'Avenir','Nunito Sans',-apple-system,system-ui,sans-serif;
+  --ease:cubic-bezier(0.2,0.7,0.2,1);
+  --max:820px; --gutter:clamp(20px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;}
+body{font-family:var(--font);font-weight:400;font-size:1.02rem;line-height:1.7;color:var(--ink);background:var(--white);}
+a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;transition:color 200ms var(--ease);}
+a:hover{color:var(--accent);}
+::selection{background:var(--accent);color:var(--white);}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-10);}
+.nav-inner{max-width:1240px;margin:0 auto;padding:18px var(--gutter);display:flex;align-items:center;gap:24px;}
+.nav img{height:24px;}
+.nav a.back{font-weight:500;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-60);text-decoration:none;}
+.nav a.back:hover{color:var(--accent);}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:clamp(48px,8vw,96px) var(--gutter) clamp(72px,10vw,140px);}
+
+.doc-head{margin-bottom:clamp(32px,5vw,52px);}
+.doc-head .stroke{display:inline-block;width:120px;height:18px;background:url('assets/brushstroke-magenta.png') left center/contain no-repeat;margin-bottom:20px;}
+.doc-head .over{font-weight:500;font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px;}
+h1{font-weight:900;font-size:clamp(2rem,1.2rem+3vw,3.4rem);letter-spacing:-0.025em;text-transform:uppercase;line-height:0.95;margin-bottom:18px;}
+.doc-head .meta{font-size:0.9rem;color:var(--ink-40);}
+
+.disclaimer{background:var(--ink-02);border:1px solid var(--ink-10);border-left:3px solid var(--accent);padding:18px 22px;margin:0 0 clamp(36px,5vw,52px);font-size:0.92rem;line-height:1.6;color:var(--ink-60);}
+.disclaimer strong{color:var(--ink);font-weight:700;}
+
+h2{font-weight:900;font-size:clamp(1.3rem,1rem+1vw,1.7rem);letter-spacing:-0.015em;text-transform:uppercase;line-height:1.1;margin:clamp(40px,5vw,60px) 0 8px;display:flex;gap:14px;align-items:baseline;}
+h2 .num{color:var(--accent);font-size:0.82em;flex-shrink:0;font-variant-numeric:tabular-nums;}
+h3{font-weight:700;font-size:1.08rem;letter-spacing:-0.005em;margin:28px 0 6px;color:var(--ink);}
+p{margin:0 0 14px;color:var(--ink-80);text-wrap:pretty;}
+p.muted,li.muted{color:var(--ink-60);}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--ink-80);}
+li{margin-bottom:7px;}
+strong{font-weight:700;}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.9em;background:var(--ink-05);padding:1px 6px;border-radius:4px;}
+.box{background:var(--ink-02);border:1px solid var(--ink-10);border-radius:8px;padding:20px 22px;margin:16px 0;}
+.box p:last-child{margin-bottom:0;}
+.kv{font-size:0.95rem;line-height:1.8;}
+.kv b{font-weight:700;}
+hr{border:none;border-top:1px solid var(--ink-10);margin:clamp(40px,5vw,56px) 0 0;}
+
+footer{border-top:1px solid var(--ink-10);padding:40px 0;background:var(--white);}
+footer .inner{max-width:1240px;margin:0 auto;padding:0 var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+footer img{height:20px;opacity:0.85;}
+footer .links{display:flex;gap:20px;font-size:0.85rem;}
+footer a{color:var(--ink-60);text-decoration:none;}
+footer a:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html"><img src="assets/logo-autart.png" alt="autart"></a>
+    <a class="back" href="index.html" style="margin-left:auto;">← Back to site</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="doc-head">
+    <span class="stroke" aria-hidden="true"></span>
+    <span class="over">Privacy</span>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: June 2026 · This policy follows German data-protection law (GDPR / TTDSG).</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Note:</strong> This is a carefully prepared template, matched to the services actually used
+    on this website and drafted to German data-protection standards. It does not constitute legal advice.
+    Please have it reviewed by a lawyer and adapted to your actual processing activities before going live.
+  </div>
+
+  <h2><span class="num">1.</span> Data controller</h2>
+  <p>The controller responsible for data processing within the meaning of the General Data Protection
+  Regulation (GDPR) and other national data-protection provisions is:</p>
+  <div class="box kv">
+    <b>autart GmbH</b><br>
+    Annaberger Str. 73<br>
+    09111 Chemnitz<br>
+    Germany<br><br>
+    Managing Director: Konstanze Wolter<br>
+    Commercial Register: HRB 34994, Amtsgericht Chemnitz<br>
+    VAT ID: DE353706653<br>
+    E-mail: <a class="js-email" data-u="aGVsbG8=" data-d="YXV0YXJ0Lmlv">…</a>
+  </div>
+
+  <h2><span class="num">2.</span> General &amp; your rights</h2>
+  <p>We take the protection of your personal data seriously and treat it confidentially and in
+  accordance with statutory provisions. Personal data is any information that can be used to identify
+  you personally.</p>
+  <h3>Your rights as a data subject</h3>
+  <p>You have the right at any time to:</p>
+  <ul>
+    <li><strong>access</strong> the data we hold about you (Art. 15 GDPR),</li>
+    <li><strong>rectification</strong> of inaccurate data (Art. 16 GDPR),</li>
+    <li><strong>erasure</strong> of your data (Art. 17 GDPR),</li>
+    <li><strong>restriction</strong> of processing (Art. 18 GDPR),</li>
+    <li><strong>data portability</strong> (Art. 20 GDPR),</li>
+    <li><strong>object</strong> to processing (Art. 21 GDPR).</li>
+  </ul>
+  <p>Any <strong>consent</strong> you give can be withdrawn at any time with effect for the future
+  (Art. 7(3) GDPR). The lawfulness of processing carried out before withdrawal remains unaffected. An
+  informal message to the contact details above is sufficient to exercise your rights.</p>
+  <h3>Right to lodge a complaint</h3>
+  <p>You have the right to lodge a complaint with a data-protection supervisory authority. The competent
+  authority includes the Saxon Data Protection Commissioner (Devrientstraße 5, 01067 Dresden, Germany).</p>
+
+  <h2><span class="num">3.</span> Hosting &amp; server log files</h2>
+  <p>When you access our website, your browser automatically sends information to our server and
+  temporarily stores it in a log file. This includes: IP address, date and time of access, name and URL
+  of the file retrieved, volume of data transferred, notification of successful retrieval, browser type
+  and version, and your operating system.</p>
+  <p>This processing serves to ensure a smooth connection, comfortable use, and evaluation of system
+  security and stability. The legal basis is our legitimate interest (Art. 6(1)(f) GDPR).</p>
+
+  <h2><span class="num">4.</span> Cookies &amp; consent management</h2>
+  <p>Our website uses cookies and comparable storage technologies. Cookies do not harm your device and
+  contain no viruses.</p>
+  <h3>Technically necessary storage</h3>
+  <p>To operate the site and to store your cookie decision, we use your browser's local storage (e.g.
+  the key <code>autart-consent-v1</code>). This storage is technically necessary; the legal basis is
+  Section 25(2) TTDSG and Art. 6(1)(f) GDPR.</p>
+  <h3>Consent-based services</h3>
+  <p>Services that are not technically necessary — in particular the Meta Pixel described in section 5 —
+  are loaded <strong>only after your explicit consent</strong> via our cookie banner. Without your
+  consent (“Accept”), no cookies are set for this purpose and no data is transferred to third parties.
+  You can change or withdraw your choice at any time via the <strong>“Cookie settings”</strong> link in
+  the footer. The legal basis is Section 25(1) TTDSG in conjunction with Art. 6(1)(a) GDPR.</p>
+
+  <h2><span class="num">5.</span> Meta Pixel (Facebook Pixel)</h2>
+  <p>This website uses — <strong>only with your consent</strong> — the “Meta Pixel” of Meta Platforms
+  Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Ireland (“Meta”).</p>
+  <div class="box">
+    <p class="kv"><b>Pixel ID used:</b> 1476763937085415</p>
+  </div>
+  <h3>Purpose of processing</h3>
+  <p>The Meta Pixel lets us understand the behaviour of visitors who reach our website after clicking a
+  Meta advertisement (Facebook/Instagram). This allows us to evaluate the effectiveness of our ads for
+  statistical and market-research purposes, optimise future advertising, and show you interest-based
+  advertising (remarketing). For this purpose a connection to Meta's servers is established and cookies
+  may be set.</p>
+  <h3>Legal basis</h3>
+  <p>The legal basis for this processing is your consent under Art. 6(1)(a) GDPR and Section 25(1)
+  TTDSG. Consent is voluntary, can be withdrawn at any time with effect for the future via “Cookie
+  settings”, and is not a condition for using the website.</p>
+  <h3>Data transfer to the USA</h3>
+  <p>In the course of using the Meta Pixel, personal data may be transferred to Meta Platforms, Inc. in
+  the <strong>USA</strong>. An adequacy decision by the EU Commission exists for the USA (EU-US Data
+  Privacy Framework), under which Meta is certified. Nonetheless, it cannot be ruled out that US
+  authorities may access the data. Where necessary, the transfer is additionally based on the EU
+  Commission's Standard Contractual Clauses.</p>
+  <p>Where data is processed jointly with Meta, this is done on the basis of a joint-controllership
+  agreement (Art. 26 GDPR).</p>
+  <h3>Further information &amp; objection</h3>
+  <p>Details on how Meta handles your data can be found in Meta's privacy policy at
+  <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a>.
+  You can adjust your advertising preferences at
+  <a href="https://www.facebook.com/settings?tab=ads" target="_blank" rel="noopener">facebook.com/settings?tab=ads</a>.
+  You control its use on this site at any time via “Cookie settings”.</p>
+
+  <h2><span class="num">6.</span> Embedded video (Vimeo)</h2>
+  <p>On our home page we embed a video via the Vimeo service (Vimeo Inc., 330 West 34th Street, New York,
+  USA). When the video is played, a connection to Vimeo's servers is established, during which your IP
+  address and information about the pages you visit may be transmitted. We use the “dnt=1” (Do Not Track)
+  parameter to reduce tracking by Vimeo. The legal basis is our legitimate interest in an appealing
+  presentation of our offering (Art. 6(1)(f) GDPR). More information:
+  <a href="https://vimeo.com/privacy" target="_blank" rel="noopener">vimeo.com/privacy</a>.</p>
+
+  <h2><span class="num">7.</span> Web fonts (Google Fonts)</h2>
+  <p>This website partly uses web fonts from Google (Google Ireland Limited) for a consistent display of
+  typefaces. When a page is accessed, your browser loads the required fonts from Google servers, during
+  which your IP address may be transmitted. The legal basis is our legitimate interest in a consistent
+  presentation (Art. 6(1)(f) GDPR). More information:
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+  <h2><span class="num">8.</span> Registration &amp; payment (CopeCart)</h2>
+  <p>Registration and payment processing for the program are handled by the external provider CopeCart
+  GmbH. When you click “Join the program”, you are redirected to a CopeCart order page. The data you
+  enter there (e.g. name, e-mail, payment details) is processed by CopeCart as seller/reseller under its
+  own responsibility. CopeCart's privacy policy applies:
+  <a href="https://www.copecart.com/datenschutz" target="_blank" rel="noopener">copecart.com/datenschutz</a>.</p>
+
+  <h2><span class="num">9.</span> Contact by e-mail</h2>
+  <p>If you contact us by e-mail, we process the data you provide in order to handle your enquiry. The
+  legal basis is Art. 6(1)(b) GDPR (initiation/performance of a contract) or Art. 6(1)(f) GDPR
+  (legitimate interest in responding). The data is deleted once it is no longer required for the purpose
+  and no statutory retention obligations prevent deletion.</p>
+
+  <h2><span class="num">10.</span> SSL/TLS encryption</h2>
+  <p>For security reasons, this site uses SSL/TLS encryption. You can recognise an encrypted connection
+  by the “https://” in your browser's address bar.</p>
+
+  <hr>
+  <p class="muted" style="margin-top:28px;font-size:0.9rem;">© <span id="yr">2026</span> autart GmbH. This privacy policy may be updated to reflect changes in the
+  law or in our processing activities.</p>
+</div>
+
+<footer>
+  <div class="inner">
+    <a href="index.html"><img src="assets/logo-autart.png" alt="autart"></a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="imprint.html">Imprint</a>
+      <a class="js-email" data-u="aGVsbG8=" data-d="YXV0YXJ0Lmlv">…</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.js-email');
+    for (var i=0;i<els.length;i++){
+      var a=els[i], u=a.getAttribute('data-u'), d=a.getAttribute('data-d');
+      if(!u||!d) continue;
+      var addr=atob(u)+'@'+atob(d);
+      a.setAttribute('href','mailto:'+addr); a.textContent=addr;
+    }
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
